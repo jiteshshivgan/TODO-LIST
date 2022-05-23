@@ -1,0 +1,164 @@
+body, html{
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    width: 100vw;
+}
+
+#todo-outer-container{
+    height:90%;
+    width:50%;
+    border: 2px solid black;
+    margin: auto;
+    margin-top: 20px;
+    background-color: lightgreen;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#heading{
+    height:auto;
+    border-bottom: 2px solid black;
+}
+
+/* description section  */
+#description-container{
+    height: auto;
+    border-bottom: 2px solid black;
+    position: relative;
+    text-align: left;
+    padding: 10px;
+}
+#description{
+    position: absolute;
+    top: -15px;
+}
+#description-container input{
+    height: 30px;
+    width: 100%;
+}
+
+#description-detail-container{
+    height: 100px;
+    width: 100%;
+    border-bottom: 2px solid black;
+    display: flex;
+}
+
+/* category section  */
+#description-detail-container-left{
+    height:auto;
+    width:50%;
+    border: 1px solid red;
+    border-bottom: none;
+    padding: 10px;
+}
+#category-container{
+    height:100%;
+    text-align: left;
+    position: relative;
+    width: 100%;
+}
+#category{
+    position: absolute;
+    top:-15px;
+}
+#category-container ul, li{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+#category-container>ul{
+    border:solid 1px black;
+    background-color: aqua;
+    width: 70%;
+}
+#category-container>ul>li{
+    border-bottom:1px solid black;
+}
+
+#category-container ul li a{
+    font-size:12px;
+    color:#000;
+    text-decoration:none;
+    font-family:arial;
+    display:inline-block;
+    width:100%;
+    cursor:pointer;
+}
+#category-container ul li{
+    padding: 5px 10px;
+}
+#category-container ul li:hover{
+    background-color: lightcoral;    
+}
+#subcategory{
+    z-index: 1;
+    display: none; 
+    background-color: aqua;  
+}
+#subcategory{
+    position: absolute;
+    width: 65%;
+}
+#choose-category:hover #subcategory{
+    display: block;
+}
+
+
+/* due date section */
+#description-detail-container-right{
+    width: 50%;
+    border: 1px solid red;
+    border-bottom: none;
+    padding: 10px;
+}
+#due-date-container{
+    /* border: 1px solid red; */
+    border-bottom: none;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    margin: 0px;
+}
+
+#due-date-container p{
+    position: relative;
+    top:-11px;
+}
+#due-date-container input{
+    position: relative;
+    top:-25px;
+}
+/* Add-Delete-buttons  */
+#add-delete-buttons{
+    height:10%;
+    border-bottom: 2px solid black;
+    padding:10px;
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+}
+#add-button{
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: 30px;
+}
+#add-delete-buttons button{
+    cursor: pointer;
+}
+#add-delete-buttons button:hover{
+    background-color: lightseagreen;
+}
+#delete-button{
+    background-color: red;
+    color: white;
+    border: none;
+    font-size: 30px;
+}
+#add-delete-buttons i{
+    font-size: 25px;
+    padding: auto;
+    margin: auto;
+}

@@ -4,9 +4,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>TODO List</title>
+    <script src="https://kit.fontawesome.com/7b6fdf30a8.js" crossorigin="anonymous"></script>
+    <!-- our css should be below other css file so that we can override it -->
+    <link rel="stylesheet" href="/css/home.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
-    <h1>TODO LIST</h1>
+    <div id="todo-outer-container">
+        <div id="heading">
+            <h1>TODO-LIST APP</h1>
+        </div>
+        <div id="description-container">
+            <p id="description">DESCRIPTION</p>
+            <br>
+            <input type="text" name="description" placeholder="What you need to do?">
+        </div>
+        <div id="description-detail-container">
+            <div id="description-detail-container-left">
+                <div id="category-container">
+                    <p id="category">CATEGORY</p>
+                    <br>
+                    <ul id="choose-category">
+                        <li><a>Choose a category</a></li>
+                            <ul id="subcategory">
+                                <li><a href="#">Personel</a></li>
+                                <li><a href="#">Work</a></li>
+                                <li><a href="#">Gym</a></li>
+                                <li><a href="#">Studies</a></li>
+                                <li><a href="#">Others</a></li>
+                            </ul>
+                            
+                    </ul>
+                </div>
+            </div> 
+            <div id="description-detail-container-right">
+                <div id="due-date-container">
+                    <p>DUE DATE</p>
+                    <input type="date" name="date">
+                </div>
+            </div>
+        </div>
+        <div id="add-delete-buttons">
+            <button type="button" id="add-button"><i class="fa-solid fa-plus"></i>&nbsp ADD TASK</button>
+            <button type="button" id="delete-button"><i class="fa-solid fa-trash"></i>&nbsp DELETE TASK</button>
+        </div>
+        <div>
+            
+        </div>
+    </div>
+    <script type="text/javascript" src="/javascript/home.js"></script>
 </body>
 </html>
