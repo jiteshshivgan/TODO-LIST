@@ -4,6 +4,12 @@ const port =8000;
 const fs=require('fs');
 const express=require('express');
 const path = require('path');
+
+const db=require('./config/mongoose');
+const TodoList =require('./models/todo');
+//This TodoList will now be used to create entries
+
+
 const app=express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
