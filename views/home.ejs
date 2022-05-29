@@ -5,54 +5,75 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TODO List</title>
+    <!-- font awesome  -->
     <script src="https://kit.fontawesome.com/7b6fdf30a8.js" crossorigin="anonymous"></script>
-    <!-- our css should be below other css file so that we can override it -->
+    <!-- static css file attached  -->
     <link rel="stylesheet" href="/css/home.css">
+    <!-- jquery  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
+    <!-- outer container div of the todo app  -->
     <div id="todo-outer-container">
         <div id="heading">
-            <h1>TODO-LIST APP</h1>
+            <h1><i class="fa-solid fa-clipboard-list"></i> &nbsp; <u>TODO-LIST APP</u></h1>
         </div>
-        <div id="description-container">
-            <p id="description">DESCRIPTION</p>
-            <br>
-            <input type="text" name="description" placeholder="What you need to do?">
-        </div>
-        <div id="description-detail-container">
-            <div id="description-detail-container-left">
-                <div id="category-container">
-                    <p id="category">CATEGORY</p>
-                    <br>
-                    <ul id="choose-category">
-                        <li><a>Choose a category</a></li>
-                            <ul id="subcategory">
-                                <li><a href="#">Personel</a></li>
-                                <li><a href="#">Work</a></li>
-                                <li><a href="#">Gym</a></li>
-                                <li><a href="#">Studies</a></li>
-                                <li><a href="#">Others</a></li>
-                            </ul>
-                            
-                    </ul>
+        <!-- input container  -->
+        <div id="input-container-div">
+            <form action="/add-todo/" method="POST">
+                <!-- input div for description and due date  -->
+                <div id="todo-input">
+                    <div>
+                        <p>Description</p>
+                        <input type="text" name="description" placeholder="What you need to do?">
+                    </div>
+                    <div>
+                        <p>Due date</p>
+                        <input type="date" name="date">
+                    </div>    
                 </div>
-            </div> 
-            <div id="description-detail-container-right">
-                <div id="due-date-container">
-                    <p>DUE DATE</p>
-                    <input type="date" name="date">
+                <br>
+                <!-- category div for selecting todo list category  -->
+                <div id="category-div">
+                    <label for="category">Category</label>
+                    <select name="category">
+                        <option value="Personal">Personal</option>
+                        <option value="Work">Work</option>
+                        <option value="Study">Study</option>
+                        <option value="College">College</option>
+                        <option value="Other">Other</option>
+                    </select>
                 </div>
-            </div>
+                <!-- Now to submit the form we have created a add button  -->
+                <button type="submit" id="add-button"><i class="fa-solid fa-plus"></i>&nbsp ADD TASK</button>
+            </form>
         </div>
-        <div id="add-delete-buttons">
-            <button type="button" id="add-button"><i class="fa-solid fa-plus"></i>&nbsp ADD TASK</button>
-            <button type="button" id="delete-button"><i class="fa-solid fa-trash"></i>&nbsp DELETE TASK</button>
-        </div>
+        <!-- In this div all the output will be displayed  -->
+
+        <!-- Below div is for separating input section from the output section -->
         <div>
-            
+        <!-- This for loop will help to display all the todo list in the database one by one  -->
+           <%for(var i=0;i<newListItem.length;i++){%>
+            <form action="/delete-todo/"   id="todo-output">
+                <!-- Output displayed on the left side  -->
+                <div id="todo-display-left">
+                    <input type="checkbox" name="checkbox" data-id="<%=newListItem[i]._id%>"> &nbsp; 
+                    <label><%=newListItem[i].description%></label> &nbsp;
+                </div>
+                <!-- Output displayed on the right side  -->
+                <div id="todo-display-right">
+                    <span id="category-output-box"><%=newListItem[i].category%></span> &nbsp;
+                    <i class="fa-solid fa-calendar-days" id="calender-icon"></i>
+                    <label><%=newListItem[i].date%></label> &nbsp; &nbsp; &nbsp;
+                    <a href="/delete-todo/?id=<%=newListItem[i]._id%>">
+                        <i class="fa-solid fa-circle-xmark"></i>
+                    </a>
+                </div>
+            </form>       
+        <%}%>
         </div>
     </div>
+    <!-- todo outer container ends here  -->
     <script type="text/javascript" src="/javascript/home.js"></script>
 </body>
 </html>
